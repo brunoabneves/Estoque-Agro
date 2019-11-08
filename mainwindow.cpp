@@ -18,3 +18,15 @@ void MainWindow::on_pBCadastroProd_clicked()
     pcObjeto = new ProdutoCadastro(this);
     pcObjeto->show();
 }
+
+void MainWindow::on_pBCadastroCategoria_clicked()
+{
+    CategoriaCadastro categoriaCadastro;
+    categoriaCadastro.exec();
+}
+
+void MainWindow::on_pBEstoque_clicked()
+{
+    Estoque estoque;
+    estoque.exec();
+}

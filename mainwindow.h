@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "produtocadastro.h"
+#include "categoriacadastro.h"
+#include "estoque.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +21,10 @@ public:
 
 private slots:
     void on_pBCadastroProd_clicked();
+
+    void on_pBCadastroCategoria_clicked();
+
+    void on_pBEstoque_clicked();
 
 private:
     Ui::MainWindow *ui;

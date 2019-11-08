@@ -27,15 +27,21 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    produtocadastro.cpp
+    produtocadastro.cpp \
+    categoriacadastro.cpp \
+    estoque.cpp
 
 HEADERS += \
         mainwindow.h \
-    produtocadastro.h
+    produtocadastro.h \
+    categoriacadastro.h \
+    estoque.h
 
 FORMS += \
         mainwindow.ui \
-    produtocadastro.ui
+    produtocadastro.ui \
+    categoriacadastro.ui \
+    estoque.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

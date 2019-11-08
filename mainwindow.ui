@@ -14,18 +14,38 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pBCadastroProd">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>40</y>
-      <width>141</width>
-      <height>27</height>
+      <width>146</width>
+      <height>89</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Cadastrar Produto</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pBCadastroProd">
+       <property name="text">
+        <string>Cadastrar Produto</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pBCadastroCategoria">
+       <property name="text">
+        <string>Cadastrar Categoria</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pBEstoque">
+       <property name="text">
+        <string>Estoque</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -34,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
