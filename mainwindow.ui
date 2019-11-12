@@ -14,13 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>40</y>
       <width>146</width>
-      <height>89</height>
+      <height>120</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -42,6 +42,13 @@
       <widget class="QPushButton" name="pBEstoque">
        <property name="text">
         <string>Estoque</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pBVenda">
+       <property name="text">
+        <string>Venda</string>
        </property>
       </widget>
      </item>

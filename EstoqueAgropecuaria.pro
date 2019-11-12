@@ -29,19 +29,22 @@ SOURCES += \
         mainwindow.cpp \
     produtocadastro.cpp \
     categoriacadastro.cpp \
-    estoque.cpp
+    estoque.cpp \
+    vendawindow.cpp
 
 HEADERS += \
         mainwindow.h \
     produtocadastro.h \
     categoriacadastro.h \
-    estoque.h
+    estoque.h \
+    vendawindow.h
 
 FORMS += \
         mainwindow.ui \
     produtocadastro.ui \
     categoriacadastro.ui \
-    estoque.ui
+    estoque.ui \
+    vendawindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

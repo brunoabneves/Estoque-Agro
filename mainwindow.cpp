@@ -30,3 +30,9 @@ void MainWindow::on_pBEstoque_clicked()
     Estoque estoque;
     estoque.exec();
 }
+
+void MainWindow::on_pBVenda_clicked()
+{
+    VendaWindow vendaWindow;
+    vendaWindow.exec();
+}

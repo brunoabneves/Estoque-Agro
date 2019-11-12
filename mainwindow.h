@@ -5,6 +5,7 @@
 #include "produtocadastro.h"
 #include "categoriacadastro.h"
 #include "estoque.h"
+#include "vendawindow.h"
 
 
 namespace Ui {
@@ -25,6 +26,8 @@ private slots:
     void on_pBCadastroCategoria_clicked();
 
     void on_pBEstoque_clicked();
+
+    void on_pBVenda_clicked();
 
 private:
     Ui::MainWindow *ui;
