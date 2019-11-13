@@ -82,7 +82,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="lineEditPrecoVenda"/>
          </item>
         </layout>
        </item>
@@ -100,7 +100,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2"/>
+          <widget class="QLineEdit" name="lineEditDescricao"/>
          </item>
         </layout>
        </item>
@@ -117,7 +117,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox"/>
+          <widget class="QComboBox" name="comboBoxCategoria"/>
          </item>
         </layout>
        </item>

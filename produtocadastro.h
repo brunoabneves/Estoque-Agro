@@ -2,6 +2,9 @@
 #define PRODUTOCADASTRO_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
 
 namespace Ui {
 class ProdutoCadastro;
@@ -14,6 +17,10 @@ class ProdutoCadastro : public QMainWindow
 public:
     explicit ProdutoCadastro(QWidget *parent = nullptr);
     ~ProdutoCadastro();
+
+private slots:
+
+    void on_actionSalvar_triggered();
 
 private:
     Ui::ProdutoCadastro *ui;
