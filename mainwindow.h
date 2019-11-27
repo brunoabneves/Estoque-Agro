@@ -6,6 +6,7 @@
 #include "categoriacadastro.h"
 #include "estoque.h"
 #include "vendawindow.h"
+#include <QtSql>
 
 
 namespace Ui {
@@ -15,6 +16,28 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+public:
+    QSqlDatabase mydb;
+    void connectionClose()
+    {
+        mydb.close();
+        mydb.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+
+    bool connectionOpen()
+    {
+        QSqlDatabase mydb = QSqlDatabase::addDatabase("QSQLITE");
+        mydb.setDatabaseName("/home/bruno/Documentos/Qt/Projetos/estoque-agro/BD/teste");
+
+        if(!mydb.open()){
+            qDebug("Não foi possível abrir o banco de dados");
+            return false;
+        }else{
+            qDebug("Banco de dados aberto com sucesso!");
+            return true;
+        }
+    }
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);

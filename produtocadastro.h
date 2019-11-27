@@ -22,6 +22,8 @@ private slots:
 
     void on_actionSalvar_triggered();
 
+    void on_pB_SearchByName_clicked();
+
 private:
     Ui::ProdutoCadastro *ui;
 };
