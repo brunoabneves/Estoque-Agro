@@ -41,7 +41,7 @@ void ProdutoCadastro::on_actionSalvar_triggered()
                   "('"+nome+"','"+precoCusto+"','"+precoVenda+"','"+descricao+"')");
 
     query2.prepare("INSERT INTO produto_categoria (id_produto, id_categoria) VALUES "
-                   "((select prod.id_produto from produto prod where prod.nome ='"+nome+"') ,"
+                   "((select prod.id from produto prod where prod.nome ='"+nome+"') ,"
                    "(select cat.id from categoria cat where cat.nome = '"+categoriaNome+"'))");
 
     //Se a query for executada, mostra uma mensagem, limpa os campos e retorna o cursor para o nome
@@ -74,11 +74,31 @@ void ProdutoCadastro::on_pB_SearchByName_clicked()
 
     QSqlQuery *query = new QSqlQuery(connection.mydb);
 
-    query->prepare("SELECT * FROM produto WHERE produto.nome = '"+nome+"'");
+    query->prepare("SELECT * FROM produto WHERE produto.nome LIKE '%"+nome+"%'");
 
     query->exec();
     modal->setQuery(*query);
     ui->tableView->setModel(modal);
 
     //qDebug >>(modal->rowCount());
+}
+
+void ProdutoCadastro::on_pB_SearchByCategorie_clicked()
+{
+    QString categoriaNome = ui->comboBoxCategoria->currentText();
+
+    MainWindow connection;
+
+    QSqlQueryModel *modal = new QSqlQueryModel();
+
+    QSqlQuery *query = new QSqlQuery(connection.mydb);
+
+    query->prepare("select * from produto where produto.id in "
+                   "(select produto_categoria.id_produto from produto_categoria where "
+                   "produto_categoria.id_categoria = (select id from categoria "
+                   "where categoria.nome like '%"+categoriaNome+"%'))");
+
+    query->exec();
+    modal->setQuery(*query);
+    ui->tableView->setModel(modal);
 }

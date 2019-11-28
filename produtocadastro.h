@@ -24,6 +24,8 @@ private slots:
 
     void on_pB_SearchByName_clicked();
 
+    void on_pB_SearchByCategorie_clicked();
+
 private:
     Ui::ProdutoCadastro *ui;
 };
