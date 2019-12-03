@@ -85,9 +85,9 @@ void ProdutoCadastro::on_pB_SearchByName_clicked()
 
 void ProdutoCadastro::on_pB_SearchByCategorie_clicked()
 {
-    QString categoriaNome = ui->comboBoxCategoria->currentText();
-
     MainWindow connection;
+
+    QString categoriaNome = ui->comboBoxCategoria->currentText();
 
     QSqlQueryModel *modal = new QSqlQueryModel();
 
