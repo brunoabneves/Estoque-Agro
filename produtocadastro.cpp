@@ -102,3 +102,39 @@ void ProdutoCadastro::on_pB_SearchByCategorie_clicked()
     modal->setQuery(*query);
     ui->tableView->setModel(modal);
 }
+
+void ProdutoCadastro::on_tableView_activated(const QModelIndex &index)
+{
+    QSqlQueryModel *modal = new QSqlQueryModel();
+
+    QString val = ui->tableView->model()->data(index).toString();
+
+    QSqlQuery query, query2;
+    query.prepare("SELECT * FROM produto where id='"+val+"' or nome='"+val+"' or "
+                  "descricao='"+val+"'");
+
+    query2.prepare("SELECT nome FROM categoria WHERE id=(SELECT id_categoria FROM "
+                   "produto_categoria WHERE id_produto = (SELECT id FROM produto WHERE nome = '"+val+"'))");
+
+    if(query.exec() && query2.exec()){
+        while(query.next()){
+            ui->lineEditNome->setText(query.value(1).toString());
+            ui->lineEditPrecoCusto->setText(query.value(2).toString());
+            ui->lineEditPrecoVenda->setText(query.value(3).toString());
+            ui->lineEditDescricao->setText(query.value(4).toString());
+        }
+        if(query2.next()){
+            if(query2.value(0).toString()=="Medicamentos")
+                ui->comboBoxCategoria->setCurrentIndex(0);
+            if(query2.value(0).toString()=="Rações")
+                ui->comboBoxCategoria->setCurrentIndex(1);
+            if(query2.value(0).toString()=="Sementes")
+                ui->comboBoxCategoria->setCurrentIndex(2);
+            if(query2.value(0).toString()=="Acessórios")
+                ui->comboBoxCategoria->setCurrentIndex(3);
+            if(query2.value(0).toString()=="PetShop")
+                ui->comboBoxCategoria->setCurrentIndex(4);
+        }
+
+    }
+}

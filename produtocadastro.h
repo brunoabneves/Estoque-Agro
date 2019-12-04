@@ -26,6 +26,8 @@ private slots:
 
     void on_pB_SearchByCategorie_clicked();
 
+    void on_tableView_activated(const QModelIndex &index);
+
 private:
     Ui::ProdutoCadastro *ui;
 };
