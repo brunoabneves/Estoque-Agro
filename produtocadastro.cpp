@@ -105,8 +105,6 @@ void ProdutoCadastro::on_pB_SearchByCategorie_clicked()
 
 void ProdutoCadastro::on_tableView_activated(const QModelIndex &index)
 {
-    QSqlQueryModel *modal = new QSqlQueryModel();
-
     QString val = ui->tableView->model()->data(index).toString();
 
     QSqlQuery query, query2;
@@ -135,6 +133,37 @@ void ProdutoCadastro::on_tableView_activated(const QModelIndex &index)
             if(query2.value(0).toString()=="PetShop")
                 ui->comboBoxCategoria->setCurrentIndex(4);
         }
+    }
+}
 
+
+void ProdutoCadastro::on_actionAtualizar_triggered()
+{
+    QString nome = ui->lineEditNome->text();
+    QString precoCusto = ui->lineEditPrecoCusto->text();
+    QString precoVenda = ui->lineEditPrecoVenda->text();
+    QString descricao = ui->lineEditDescricao->text();
+
+    QSqlQuery query;
+
+    query.prepare("UPDATE produto SET nome='"+nome+"', preco_custo='"+precoCusto+"',"
+                  "preco_venda='"+precoVenda+"', descricao='"+descricao+"' "
+                  "WHERE produto.id = (SELECT id FROM produto WHERE nome = '"+nome+"')");
+
+    if(query.exec()){
+        qDebug("Registro alterado");
+
+        QMessageBox::information(this, "", "Registro alterado com sucesso");
+        ui->lineEditNome->clear();
+        ui->lineEditPrecoCusto->clear();
+        ui->lineEditPrecoVenda->clear();
+        ui->lineEditDescricao->clear();
+        ui->comboBoxCategoria->clear();
+
+        ui->lineEditNome->setFocus();
+
+    }else{
+        qDebug("Erro ao alterar registro!");
+        qDebug() << query.lastError().text();
     }
 }

@@ -259,6 +259,8 @@
    <addaction name="separator"/>
    <addaction name="actionPesquisar"/>
    <addaction name="separator"/>
+   <addaction name="actionAtualizar"/>
+   <addaction name="separator"/>
   </widget>
   <action name="actionNovo">
    <property name="icon">
@@ -303,6 +305,15 @@
    </property>
    <property name="text">
     <string>Pesquisar</string>
+   </property>
+  </action>
+  <action name="actionAtualizar">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/rec/icons/update.png</normaloff>:/rec/icons/update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Atualizar</string>
    </property>
   </action>
  </widget>

@@ -28,6 +28,8 @@ private slots:
 
     void on_tableView_activated(const QModelIndex &index);
 
+    void on_actionAtualizar_triggered();
+
 private:
     Ui::ProdutoCadastro *ui;
 };
