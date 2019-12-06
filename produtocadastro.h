@@ -30,6 +30,8 @@ private slots:
 
     void on_actionAtualizar_triggered();
 
+    void on_actionExcluir_triggered();
+
 private:
     Ui::ProdutoCadastro *ui;
 };

@@ -167,3 +167,33 @@ void ProdutoCadastro::on_actionAtualizar_triggered()
         qDebug() << query.lastError().text();
     }
 }
+
+void ProdutoCadastro::on_actionExcluir_triggered()
+{
+    QString nome = ui->lineEditNome->text();
+    QString precoCusto = ui->lineEditPrecoCusto->text();
+    QString precoVenda = ui->lineEditPrecoVenda->text();
+    QString descricao = ui->lineEditDescricao->text();
+
+    QSqlQuery query;
+
+    query.prepare("DELETE FROM produto WHERE nome= '"+nome+"' and preco_custo= '"+precoCusto+"' "
+                  "and preco_venda='"+precoVenda+"' and descricao='"+descricao+"'");
+
+    if(query.exec()){
+        qDebug("Registro excluído!");
+
+        QMessageBox::information(this, "", "Registro excluído com sucesso");
+        ui->lineEditNome->clear();
+        ui->lineEditPrecoCusto->clear();
+        ui->lineEditPrecoVenda->clear();
+        ui->lineEditDescricao->clear();
+        ui->comboBoxCategoria->clear();
+
+        ui->lineEditNome->setFocus();
+
+    }else{
+        qDebug("Erro ao excluír registro!");
+        qDebug() << query.lastError().text();
+    }
+}
