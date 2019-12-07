@@ -2,6 +2,7 @@
 #include "ui_produtocadastro.h"
 #include <QMessageBox>
 #include "mainwindow.h"
+#include <QDebug>
 
 ProdutoCadastro::ProdutoCadastro(QWidget *parent) :
     QMainWindow(parent),
@@ -196,4 +197,18 @@ void ProdutoCadastro::on_actionExcluir_triggered()
         qDebug("Erro ao excluír registro!");
         qDebug() << query.lastError().text();
     }
+}
+
+void ProdutoCadastro::on_loadImageButton_clicked()
+{
+    QString fileName;
+        fileName = QFileDialog::getOpenFileName(this,
+                                         "Seleccione o ficheiro de origem",
+                                         ".",
+                                         "Ficheiro de texto (*.png)");
+        ui->imageLabel->setPixmap(QPixmap(fileName).scaled(151,111,Qt::KeepAspectRatio));
+        //QFileInfo fi(fileName);
+       // ui->fileNameLabel->setText(fi.fileName());
+        QApplication::processEvents();
+        //this->adjustSize();
 }

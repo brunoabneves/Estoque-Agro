@@ -5,6 +5,8 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
+#include <QFileInfo>
+#include <QFileDialog>
 
 namespace Ui {
 class ProdutoCadastro;
@@ -31,6 +33,8 @@ private slots:
     void on_actionAtualizar_triggered();
 
     void on_actionExcluir_triggered();
+
+    void on_loadImageButton_clicked();
 
 private:
     Ui::ProdutoCadastro *ui;
